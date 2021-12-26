@@ -1,8 +1,6 @@
 package ru.geekbrains;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.persist.Product;
 import ru.geekbrains.persist.ProductRepository;
@@ -10,7 +8,6 @@ import ru.geekbrains.persist.ProductRepository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service
 public class CartService {
