@@ -51,10 +51,12 @@
                 <version>2.2</version>
                 <configuration>
                     <username>admin</username>
-                    <!--                    <url>http://89.108.70.167:8080/manager/text</url>-->
-                    <!--                    <password>UBTi4)yRaxVkUw2</password>-->
-                    <url>http://localhost:8080/manager/text</url>
-                    <password>leesti</password>
+<!--                    <url>http://app-srv01:8080/manager/text</url>-->
+<!--                    <password>admin</password>-->
+                                        <url>http://89.108.70.167:8080/manager/text</url>
+                                        <password>UBTi4)yRaxVkUw2</password>
+                    <!--                    <url>http://localhost:8080/manager/text</url>-->
+                    <!--                    <password>leesti</password>-->
                     <path>/servlet-app</path>
                 </configuration>
             </plugin>
