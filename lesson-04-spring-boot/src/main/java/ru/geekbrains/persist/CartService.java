@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import ru.geekbrains.controller.NotFoundException;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -51,5 +52,9 @@ public class CartService {
                 .map(p -> new CartDTO(p, productCount.get(p)))
                 .sorted(Comparator.comparing(CartDTO::getProductName))
                 .collect(Collectors.toList());
+    }
+
+    public BigDecimal calcTotalAmount(List<CartDTO> list) {
+        return list.stream().map(CartDTO::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

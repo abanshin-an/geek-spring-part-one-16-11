@@ -5,9 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.geekbrains.persist.CartDTO;
 import ru.geekbrains.persist.CartService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -22,7 +25,9 @@ public class CartController {
 
     @GetMapping("/cart")
     public String listPage(Model model) {
-        model.addAttribute("cart", cartService.getAllDTO());
+        List<CartDTO> list=cartService.getAllDTO();
+        model.addAttribute("cart", list );
+        model.addAttribute("totalAmount", cartService.calcTotalAmount(list));
         return "cart";
     }
     @GetMapping("cart/add")

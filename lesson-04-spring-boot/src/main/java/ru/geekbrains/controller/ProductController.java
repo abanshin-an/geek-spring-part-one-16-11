@@ -35,6 +35,12 @@ public class ProductController {
         return "product_form";
     }
 
+    @GetMapping("/{id}")
+    public String edit(Model model, @PathVariable long id) {
+        model.addAttribute("product", productRepository.findById(id));
+        return "product_form";
+    }
+
     @PostMapping
     public String save(@Valid Product product, BindingResult result) {
         if (result.hasErrors()) {
