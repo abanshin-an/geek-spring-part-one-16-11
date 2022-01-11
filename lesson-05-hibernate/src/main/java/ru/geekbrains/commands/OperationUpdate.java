@@ -1,5 +1,6 @@
 package ru.geekbrains.commands;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.geekbrains.dao.ProductDAO;
 import ru.geekbrains.entity.Product;
@@ -9,6 +10,12 @@ import java.util.Scanner;
 
 @Component
 public class OperationUpdate implements Operation {
+    ProductDAO dao;
+    @Autowired
+    public OperationUpdate(ProductDAO dao) {
+        this.dao=dao;
+    }
+
     @Override
     public String getName() {
         return "UPDATE";
@@ -30,6 +37,6 @@ public class OperationUpdate implements Operation {
         System.out.println("enter price:");
         p.setPrice(new BigDecimal(scanner.nextLine().trim()));
 
-        ProductDAO.get().update(p);
+        dao.update(p);
     }
 }

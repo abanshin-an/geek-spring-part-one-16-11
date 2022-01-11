@@ -1,23 +1,17 @@
 package ru.geekbrains.dao;
 
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Component;
 import ru.geekbrains.entity.Product;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
+@Component
 public class ProductDAO {
-    static ProductDAO productDAO;
 
-    public static ProductDAO get(){
-        if (productDAO==null) {
-            productDAO=new ProductDAO();
-        }
-        return productDAO;
-    }
-
-    private EntityManagerFactory entityManagerFactory;
+    private final EntityManagerFactory entityManagerFactory;
 
     private ProductDAO() {
         entityManagerFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
