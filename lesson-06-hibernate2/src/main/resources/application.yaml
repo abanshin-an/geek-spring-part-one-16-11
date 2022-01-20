@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/datalake?currentSchema=geekbrains
+    username: postgres
+    password: leesti
+    driverClassName: org.postgresql.Driver
+  flyway:
+    schemas: geekbrains
+    enabled: true
