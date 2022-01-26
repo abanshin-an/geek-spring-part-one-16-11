@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th th:fragment="sort_header(header, column)" scope="col">[[${header}]]
+    <a th:href="@{/product(nameFilter=${param.nameFilter}, minPriceFilter=${param.minPriceFilter}, maxPriceFilter=${param.maxPriceFilter}, page=${param.num}, size=${param.size}, sort=${column}, dir=${#strings.equals(param.dir,'asc')} ? 'desc': 'asc')}">
+<!--        <div th:text="${param.sort}"></div>-->
+<!--        <div th:text="${param.dir}"></div>-->
+        <i th:if="${!#strings.equals(column,param.sort)}" class="fa fa-sort"></i>
+        <i th:if="${#strings.equals(column,param.sort) && #strings.equals(param.dir,'desc')}" class="fa fa-sort-down"></i>
+        <i th:if="${#strings.equals(column,param.sort) && #strings.equals(param.dir,'asc')}" class="fa fa-sort-up"></i>
+    </a>
+</th>
+
+</html>
