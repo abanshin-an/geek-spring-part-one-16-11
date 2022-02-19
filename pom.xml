@@ -30,6 +30,7 @@
         <module>lesson-07-spring-data</module>
         <module>lesson-08-thymeleaf</module>
         <module>lesson-09-rest1</module>
+        <module>lesson-11-security</module>
     </modules>
 
 </project>

@@ -78,8 +78,7 @@ public class ProductResource {
         return productService.save(productDto);
     }
 
-    @PutMapping("/{id}")
-    @ResponseStatus()
+    @PutMapping("/")
     public ProductDto update(@RequestBody ProductDto productDto){
         if ( productDto.getId()==null) {
             throw new IllegalArgumentException("For product update id have to be not null");
@@ -103,6 +102,10 @@ public class ProductResource {
     public ErrorDto illegalArgumentException(IllegalArgumentException ex){
         return new ErrorDto(ex.getMessage());
     }
+
 //    @PutMapping
+//    public void put(ProductDto productDto ) {
+//        productService.save(productDto);
+//    }
 
 }

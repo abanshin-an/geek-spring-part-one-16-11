@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.geekbrains</groupId>
-    <artifactId>lesson-04-spring-boot</artifactId>
+    <artifactId>lesson-07-spring-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lesson-04-spring-boot</name>
-    <description>lesson-04-spring-boot</description>
+    <name>lesson-07-spring-boot</name>
+    <description>lesson-07-spring-boot</description>
     <properties>
         <java.version>11</java.version>
     </properties>
