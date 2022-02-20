@@ -1,0 +1,27 @@
+server:
+    servlet:
+      context-path: /mvc-app
+      encoding:
+        charset: "UTF-8"
+        enabled: true
+        force: true
+    port: 8080
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/datalake?currentSchema=geekbrains1
+    driverClassName: org.postgresql.Driver
+#    username:
+#    password:
+  flyway:
+    schemas: geekbrains1
+    enabled: true
+#    baseline-on-migrate: true

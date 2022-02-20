@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header.html :: head">
+
+</head>
+
+<body>
+
+<nav th:replace="fragments/header.html :: navigation">
+</nav>
+
+<div class="container">
+    <div class="row py-2">
+        <div class="col-12">
+            <p th:text="${message}">Not found</p>
+        </div>
+    </div>
+    <div class="col-sm-12 d-flex justify-content-center">
+         <span><a class="btn custom-smile-btn-back mr-1 ml-1" onclick="history.go(-1)"><span class="icon">
+             <i
+                 class="fas fa-angle-double-left mr-2"></i></span><span
+                 class="text">Back</span></a></span>
+    </div>
+</div>
+
+<th:block th:replace="fragments/footer.html :: scripts">
+</th:block>
+
+</body>
+
+</html>
