@@ -1,0 +1,77 @@
+<div class="row py-2">
+  <div class="col-12">
+    <a class="btn btn-primary" routerLink="/product/new">Add Product</a>
+  </div>
+
+<!--  <form class="form-inline mt-3" method="get">-->
+<!--    <div class="form-group mx-sm-3 mb-2">-->
+<!--      <label for="name-filter" class="sr-only">Name filter:</label>-->
+<!--      <input th:value="${param.nameFilter}" type="text" class="form-control"-->
+<!--             name="nameFilter" id="name-filter" placeholder="Name filter">-->
+<!--    </div>-->
+<!--    <div class="form-group mx-sm-3 mb-2">-->
+<!--      <label for="min-price-filter" class="sr-only">Min price filter:</label>-->
+<!--      <input th:value="${param.minPriceFilter}" type="text" class="form-control"-->
+<!--             name="minPriceFilter" id="min-price-filter" placeholder="min price filter">-->
+<!--    </div>-->
+<!--    <div class="form-group mx-sm-3 mb-2">-->
+<!--      <label for="max-price-filter" class="sr-only">Min price filter:</label>-->
+<!--      <input th:value="${param.maxPriceFilter}" type="text" class="form-control"-->
+<!--             name="maxPriceFilter" id="max-price-filter" placeholder="max price filter">-->
+<!--    </div>-->
+<!--    <button type="submit" class="btn btn-primary mb-2">Apply</button>-->
+<!--  </form>-->
+
+  <div class="col-12">
+    <table class="table table-bordered my-2">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let prod of products; let i = index">
+        <th scope="row">{{prod.id}}</th>
+        <td>{{prod.name}}</td>
+        <td>{{prod.description}}</td>
+        <td>{{prod.categoryName}}</td>
+        <td>{{prod.price}}</td>
+        <td>
+          <a class="btn btn-success" routerLink="/product/{{prod.id}}"><i class="fas fa-edit"></i></a>
+          <a class="btn btn-danger" (click)="delete(prod.id, i)"><i class="far fa-trash-alt"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-12">
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item" th:classappend="${products.first} ? 'disabled' : '' ">
+          <a class="page-link"
+             th:href="@{/product(nameFilter=${param.nameFilter},  minPriceFilter=${param.minPriceFilter}, maxPriceFilter=${param.maxPriceFilter}, page=${T(Math).max(products.number,0)}, size=${param.size}, sort=${param.sort}, dir=${param.dir})}">Previous</a>
+        </li>
+
+        <li th:each="num : ${#numbers.sequence(1, products.totalPages)}"
+            th:classappend="${num == products.number + 1} ? 'active'" class="page-item">
+          <a class="page-link"
+             th:href="@{/product(nameFilter=${param.nameFilter},  minPriceFilter=${param.minPriceFilter}, maxPriceFilter=${param.maxPriceFilter}, page=${num}, size=${param.size}, sort=${param.sort}, dir=${param.dir})}"
+             th:text="${num}">1</a>
+        </li>
+
+        <li class="page-item" th:classappend="${products.last} ? 'disabled' : '' ">
+          <a class="page-link"
+             th:href="@{/product(nameFilter=${param.nameFilter},  minPriceFilter=${param.minPriceFilter}, maxPriceFilter=${param.maxPriceFilter}, page=${T(Math).min(products.number+2, products.totalPages)}, size=${param.size}, sort=${param.sort}, dir=${param.dir})}">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+

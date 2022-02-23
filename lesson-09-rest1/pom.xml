@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.geekbrains</groupId>
-    <artifactId>lesson-08-thymeleaf</artifactId>
+    <artifactId>lesson-09-rest1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lesson-08-thymeleaf</name>
-    <description>lesson-08-thymeleaf</description>
+    <name>lesson-09-rest1</name>
+    <description>lesson-09-rest1</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -37,6 +37,11 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
